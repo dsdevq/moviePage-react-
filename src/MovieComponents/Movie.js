@@ -1,6 +1,4 @@
 import React from "react"
-import { Link } from "react-router-dom"
-import MoreDetails from "./MoreDetails"
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280"
 
@@ -29,7 +27,6 @@ function Movie({ title, poster_path, overview, vote_average }) {
 				<div className='movie-over'>
 					<h2> Overview: </h2>
 					<p> {overview} </p>
-					<button>more details..</button>
 				</div>
 			</div>
 		</>

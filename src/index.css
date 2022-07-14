@@ -31,18 +31,24 @@ body {
 
 header {
   width: 100%;
-  background-color: rgb(255, 251, 188);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgb(255, 251, 188, .5);
   display: flex;
   flex-wrap: wrap;
-  padding: 1rem;
+  padding: 0.5rem;
   justify-content: space-between;
+}
+.header-logo {
+  max-width: 50px;
 }
 
 
 
 .search {
   background-color: transparent;
-  max-width: 100px;
+  max-width: 125px;
   width: 100%;
   border-radius: 50px;
   color: rgb(0, 0, 0);
@@ -68,6 +74,7 @@ header {
 
 .movie {
   max-width: 350px;
+  min-height: 100%;
   background-color: rgba(218, 218, 218, 0.76);
   border-radius: 3px;
   box-shadow: 3px 3px 5px rgb(0, 0, 0, 0.1);
@@ -157,8 +164,8 @@ header {
 }
 
 a {
+  max-width: 350px;
   flex: 1 1 300px;
   text-decoration: none;
   color: inherit;
-  cursor: none;
 }

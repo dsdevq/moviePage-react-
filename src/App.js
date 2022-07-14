@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react"
-import { Route, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom"
 import useDebounce from "./hooks/UseDebouce"
-import { ButtonComponent } from "./MovieComponents/Button"
-import { MovieList } from "./MovieComponents/MovieList"
 import MoreDetails from "./MovieComponents/MoreDetails"
 import { SearchComponent } from "./MovieComponents/Search"
+
+import { MoviePage } from "./pages/MoviePage"
 
 const SEARCH_API =
 	"https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query="
@@ -13,6 +13,8 @@ const FEATURED_API =
 	"https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page="
 
 function App() {
+	// const { searchTerm, handleOnChange, movies, setPage, page } = useMoviePage()
+
 	const [movies, setMovies] = useState([])
 	const [page, setPage] = useState(1)
 
@@ -43,14 +45,19 @@ function App() {
 	}
 
 	return (
-		<div className='App'>
+		<BrowserRouter>
 			<SearchComponent
 				searchTerm={searchTerm}
 				handleOnChange={handleOnChange}
 			/>
-			<MovieList movies={movies} />
-			<ButtonComponent event={() => setPage(page + 1)} text='Show More' />
-		</div>
+			<Routes>
+				<Route
+					path={"/movies"}
+					element={<MoviePage movies={movies} setPage={setPage} page={page} />}
+				/>
+				<Route path='/movies/:movieID/*' element={<MoreDetails />} />
+			</Routes>
+		</BrowserRouter>
 	)
 }
 
