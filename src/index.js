@@ -1,15 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react"
+import ReactDOM from "react-dom"
+import "./index.css"
+import App from "./App"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import MoreDetails from "./MovieComponents/MoreDetails"
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+	<React.StrictMode>
+		<BrowserRouter>
+			<Routes>
+				<Route path={"/movies"} element={<App />} />
+				<Route path='/movies/:movieID/*' element={<MoreDetails />} />
+			</Routes>
+		</BrowserRouter>
+	</React.StrictMode>,
+	document.getElementById("root")
+)

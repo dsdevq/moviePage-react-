@@ -5,6 +5,13 @@ body {
   margin: 0;
 }
 
+.App {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 .dark-theme {
   color: white;
@@ -23,27 +30,32 @@ body {
 }
 
 header {
+  width: 100%;
   background-color: rgb(255, 251, 188);
   display: flex;
   flex-wrap: wrap;
   padding: 1rem;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 
 
 .search {
   background-color: transparent;
+  max-width: 100px;
+  width: 100%;
   border-radius: 50px;
   color: rgb(0, 0, 0);
   border: 2px solid darkkhaki;
   font-family: inherit;
   font-size: 1rem;
   padding: 0.5rem 1.5rem;
+  transition: all 0.2s ease-in;
 }
 
 .search:focus {
   outline: none;
+  max-width: 200px;
 }
 
 
@@ -55,13 +67,12 @@ header {
 }
 
 .movie {
-  flex: 1 1 300px;
+  max-width: 350px;
   background-color: rgba(218, 218, 218, 0.76);
   border-radius: 3px;
   box-shadow: 3px 3px 5px rgb(0, 0, 0, 0.1);
   overflow: hidden;
   position: relative;
-  /* width: 300px; */
   transition: all 0.3s ease-out;
 }
 
@@ -135,4 +146,19 @@ header {
 
 .dark-input {
   color: white;
+}
+
+.movie-showMore {
+  font-size: 24px;
+  border-radius: 50px;
+  border: none;
+  margin-bottom: 10px;  
+  padding: 10px 20px;
+}
+
+a {
+  flex: 1 1 300px;
+  text-decoration: none;
+  color: inherit;
+  cursor: none;
 }
