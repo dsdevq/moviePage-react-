@@ -29,42 +29,6 @@ body {
   flex-direction: column;
 }
 
-header {
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgb(255, 251, 188, .5);
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0.5rem;
-  justify-content: space-between;
-}
-.header-logo {
-  max-width: 50px;
-}
-
-
-
-.search {
-  background-color: transparent;
-  max-width: 125px;
-  width: 100%;
-  border-radius: 50px;
-  color: rgb(0, 0, 0);
-  border: 2px solid darkkhaki;
-  font-family: inherit;
-  font-size: 1rem;
-  padding: 0.5rem 1.5rem;
-  transition: all 0.2s ease-in;
-}
-
-.search:focus {
-  outline: none;
-  max-width: 200px;
-}
-
-
 .movie-container {
   padding: 2rem;
   display: flex;
@@ -163,9 +127,11 @@ header {
   padding: 10px 20px;
 }
 
-a {
+.movie-link {
   max-width: 350px;
   flex: 1 1 300px;
+}
+a {
   text-decoration: none;
   color: inherit;
 }

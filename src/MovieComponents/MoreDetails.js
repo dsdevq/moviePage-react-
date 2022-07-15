@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import "./MoreDetails.css"
 import { useParams } from "react-router-dom"
+import { SimilarMovies } from "./SimilarMovies"
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280"
 
@@ -20,27 +21,31 @@ const MoreDetails = () => {
 	useEffect(async () => {
 		// Fetching for external ID
 		const response = await fetch(
-			`https://api.themoviedb.org/3/movie/${params.movieID}/external_ids?api_key=04c35731a5ee918f014970082a0088b1`
+			`https://api.themoviedb.org/3/movie/${params.movieID}?api_key=04c35731a5ee918f014970082a0088b1&language=en-US`
 		)
-		const external_id = await response.json()
-		// Fetching movie with external ID
-		const result = await fetch(
-			`https://api.themoviedb.org/3/find/${external_id.imdb_id}?api_key=04c35731a5ee918f014970082a0088b1&language=en-US&external_source=imdb_id`
-		)
-		const movie = await result.json()
-		console.log(movie.movie_results[0])
-		setSelectedMovie(movie.movie_results[0])
-	}, [])
+		const result = await response.json()
+		console.log(result)
+		setSelectedMovie(result)
+	}, [params.movieID])
 
 	return (
 		<div className='more-details'>
 			<div className='more-details__container'>
 				{selectedMovie && (
 					<>
+						<SimilarMovies />
 						<aside className='more-details__information information-details'>
 							<h1 className='information-details__title'>
 								{selectedMovie.title}
 							</h1>
+							<div className='information-details__genre genre-box'>
+								<div className='genre-box__container'>
+									{selectedMovie.genres &&
+										selectedMovie.genres.map((genre) => (
+											<p className='genre-box__item'>{genre.name}</p>
+										))}
+								</div>
+							</div>
 							<p className='information-details__release'>
 								Release date: {selectedMovie.release_date}
 							</p>
@@ -51,7 +56,8 @@ const MoreDetails = () => {
 								{selectedMovie.overview}
 							</p>
 							<p className='information-details__language'>
-								Original language: {selectedMovie.original_language}
+								Original language:{" "}
+								<span>{selectedMovie.original_language}</span>
 							</p>
 							<p className='information-details__vote-average '>
 								Average vote:

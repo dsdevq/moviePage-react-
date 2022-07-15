@@ -1,0 +1,52 @@
+header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgb(255, 251, 188, .5);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+  justify-content: space-between;
+}
+.header-logo {
+  max-width: 50px;
+}
+
+
+.search {
+  background-color: transparent;
+  max-width: 125px;
+  width: 100%;
+  border-radius: 50px;
+  color: rgb(0, 0, 0);
+  border: 2px solid darkkhaki;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.2s ease-in;
+}
+
+.search:focus {
+  outline: none;
+  max-width: 200px;
+}
+
+.genre-container {
+  display: flex;
+  gap: 2px;
+  max-width: 70%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+.genre-item {
+  flex: 1 0 80px;
+  white-space: nowrap;
+  text-align: center;
+  background-color: khaki;
+  border-radius: 2px;
+  border: 1px solid black;
+  padding: 5px;
+}

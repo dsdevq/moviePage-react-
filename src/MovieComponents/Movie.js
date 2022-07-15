@@ -21,7 +21,7 @@ function Movie({ title, poster_path, overview, vote_average }) {
 					<h3> {title} </h3>
 					<span className={`tag ${setVoteClass(vote_average)}`}>
 						{" "}
-						{vote_average}{" "}
+						{Math.round(vote_average)}{" "}
 					</span>
 				</div>
 				<div className='movie-over'>
