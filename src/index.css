@@ -32,6 +32,7 @@ body {
 .movie-container {
   padding: 2rem;
   display: flex;
+  /* justify-content: center; */
   flex-wrap: wrap;
   gap: 2rem;
 }
@@ -71,6 +72,7 @@ body {
 .movie-over {
   border-radius: 3px;
   box-shadow: 3px 3px 5px rgb(0, 0, 0, 0.1);
+  overflow: auto;
   background-color: seashell;
   color: rgb(0, 0, 0);
   padding: 1rem;
@@ -129,7 +131,7 @@ body {
 
 .movie-link {
   max-width: 350px;
-  flex: 1 1 300px;
+  flex: 1 1 250px;
 }
 a {
   text-decoration: none;

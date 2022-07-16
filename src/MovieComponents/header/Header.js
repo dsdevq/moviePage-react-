@@ -11,7 +11,6 @@ export const Header = ({ searchTerm, handleOnChange }) => {
 			<Link to={"/moviePage-react-"}>
 				<img className='header-logo' src={logo} alt='logo' />
 			</Link>
-			<GenreComponent />
 			<SearchComponent
 				searchTerm={searchTerm}
 				handleOnChange={handleOnChange}

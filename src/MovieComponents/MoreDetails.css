@@ -2,15 +2,15 @@
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
-  letter-spacing: 0.4px;
   box-sizing: border-box;
 }
 
 .more-details {
 }
-.more-details * p {
+/* .more-details * p {
   font-size: 24px;
-}
+} */
+
 .more-details__container {
   display: flex;
   flex-direction: column-reverse;
@@ -86,10 +86,13 @@ span {
 .genre-box {
   display: flex;
   justify-content: center;
+  text-align: center;
   gap: 5px;
 }
 .genre-box__container {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 5px;
 }
 .genre-box__item {
