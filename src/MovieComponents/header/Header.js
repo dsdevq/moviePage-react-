@@ -4,6 +4,7 @@ import logo from "../../assets/logo.png"
 import { GenreComponent } from "./Genres"
 import { SearchComponent } from "./Search"
 import "./Header.css"
+import { LoginComponent } from "./Login/Login"
 
 export const Header = ({ searchTerm, handleOnChange }) => {
 	return (
@@ -15,6 +16,7 @@ export const Header = ({ searchTerm, handleOnChange }) => {
 				searchTerm={searchTerm}
 				handleOnChange={handleOnChange}
 			/>
+			<LoginComponent />
 		</header>
 	)
 }

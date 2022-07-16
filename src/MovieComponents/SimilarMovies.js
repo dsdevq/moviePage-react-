@@ -5,7 +5,7 @@ import { ButtonComponent } from "./Button"
 import Movie from "./Movie"
 import { MovieList } from "./MovieList"
 
-const KEY = "api_key=04c35731a5ee918f014970082a0088b1"
+export const KEY = "api_key=04c35731a5ee918f014970082a0088b1"
 
 export const SimilarMovies = () => {
 	const [similarMovies, setSilimarMovies] = useState()

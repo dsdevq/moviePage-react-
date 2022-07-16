@@ -16,7 +16,7 @@ export const getMovies = async (API) => {
 	const response = await fetch(API)
 	const result = await response.json()
 	// console.log(result)
-	return result
+	return await result
 }
 
 function App() {
