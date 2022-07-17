@@ -2,7 +2,7 @@ header {
   width: 100%;
   position: sticky;
   top: 0;
-  z-index: 100;
+  /* z-index: 100; */
   background: rgb(255, 251, 188, .5);
   display: flex;
   align-items: center;
@@ -33,6 +33,19 @@ header {
   max-width: 200px;
 }
 
+.genre-item {
+  flex: 1 0 80px;
+  white-space: nowrap;
+  text-align: center;
+  background-color: rgb(240, 230, 140);
+  border-radius: 2px;
+  border: 1px solid black;
+  padding: 5px;
+}
+.App-header {
+  z-index: 2;
+}
+
 .genre-container {
   display: flex;
   gap: 2px;
@@ -40,13 +53,35 @@ header {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
+  transition: 0.2s ease-in-out;
 }
-.genre-item {
-  flex: 1 0 80px;
-  white-space: nowrap;
-  text-align: center;
-  background-color: khaki;
-  border-radius: 2px;
-  border: 1px solid black;
-  padding: 5px;
+.burger-button {
+  padding: 0.5rem 1.5rem;
+  background-color: rgb(240, 230, 140, .9);
+  border: 2px solid darkkhaki;
+  border-radius: 20px;
+  display: none;
 }
+
+@media(max-width: 1024px) {
+  .genre-container {
+    z-index: -1;
+    transform: translateX(-100%);
+    position: absolute;
+    background-color: inherit;
+    padding: 0 10px 10px 10px;
+    max-width: 100%;
+    top: 100%;
+  }
+  .burger-button {
+    display: block;
+    cursor: pointer;
+  }
+}
+/* .burger-container {
+  position: absolute;
+  bottom: -100%;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+} */

@@ -98,3 +98,8 @@ span {
 .genre-box__item {
   
 }
+
+.review-container {
+  display: grid;
+  gap: 20px;
+}

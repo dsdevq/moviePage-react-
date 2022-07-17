@@ -1,24 +1,46 @@
 import React, { useEffect, useState } from "react"
-import { getMovies } from "../../../App"
-import { KEY } from "../../SimilarMovies"
-
-const LINK = `https://api.themoviedb.org/3/authentication/token/new?${KEY}`
+import { FETCH, getMovies } from "../../../App"
 
 export const LoginComponent = () => {
 	const [state, setState] = useState({})
 
+	const LINK = `https://api.themoviedb.org/3/authentication/token/new?${FETCH.key}`
 	useEffect(async () => {
-		const test = await getMovies(LINK)
-		console.log(test)
-		const response = await fetch(
-			`https://www.themoviedb.org/authenticate/${test.request_token}`
-		)
-		const result = await response.json()
-		console.log(result)
-		// const POST_REQUES = await fetch(`https://api.themoviedb.org/3/authentication/session/new?${KEY}`, {
-		//   method: 'POST',
-
-		// })
+		// const test = await getMovies(LINK)
+		// console.log(test)
+		// const response = await fetch(
+		// 	`https://www.themoviedb.org/authenticate/${test.request_token}`
+		// )
+		// const result = await response.json()
+		// console.log(result)
+		// const POST_REQUES = await fetch(
+		// 	`https://api.themoviedb.org/3/authentication/session/new?${FETCH.key}`,
+		// 	{
+		// 		method: "POST",
+		// 		headers: {
+		// 			"Content-Type": "application/json",
+		// 		},
+		// 		body: JSON.stringify(result),
+		// 	}
+		// )
+		// const post = await POST_REQUES.json()
 	}, [])
-	return <div>LoginComponent</div>
+	return (
+		<div className='login-wrapper'>
+			<h1>Please Log In</h1>
+			<form>
+				<label>
+					<p>Username</p>
+					<input type='text' />
+				</label>
+				<label>
+					<p>Password</p>
+					<input type='password' />
+				</label>
+				<div>
+					<button type='submit'>Submit</button>
+				</div>
+			</form>
+		</div>
+	)
 }

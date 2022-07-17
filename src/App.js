@@ -6,42 +6,58 @@ import { MoviePage } from "./pages/MoviePage"
 import { Header } from "./MovieComponents/header/Header"
 import { Genre } from "./MovieComponents/header/Genre"
 
-const SEARCH_API =
-	"https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query="
+export const IMG_API = (image) => `https://image.tmdb.org/t/p/w1280${image}`
 
-const FEATURED_API =
-	"https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page="
+export const FETCH = {
+	key: "04c35731a5ee918f014970082a0088b1",
+	search: function (value) {
+		return `https://api.themoviedb.org/3/search/movie?&api_key=${this.key}&query=${value}`
+	},
+	featured: function (page) {
+		return `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${this.key}&page=${page}`
+	},
+	genreList: function () {
+		return `https://api.themoviedb.org/3/genre/movie/list?api_key=${this.key}`
+	},
+	genreMovies: function (genreID) {
+		return `https://api.themoviedb.org/3/discover/movie?api_key=${this.key}&sort_by=popularity.desc&with_genres=${genreID}`
+	},
+	moreDetails: function (movieID) {
+		return `https://api.themoviedb.org/3/movie/${movieID}?api_key=${this.key}`
+	},
+	similar: function (movieID) {
+		return `https://api.themoviedb.org/3/movie/${movieID}/similar?&api_key=${this.key}`
+	},
+	reviews: function (movieID) {
+		return `https://api.themoviedb.org/3/movie/${movieID}/reviews?api_key=${this.key}`
+	},
+}
 
 export const getMovies = async (API) => {
 	const response = await fetch(API)
 	const result = await response.json()
-	// console.log(result)
 	return await result
 }
 
 function App() {
-	// const { searchTerm, handleOnChange, movies, setPage, page } = useMoviePage()
-
 	const [movies, setMovies] = useState([])
 	const [page, setPage] = useState(1)
 
 	const [searchTerm, setSearchTerm] = useState("")
 	const debouncedSearchTerm = useDebounce(searchTerm, 500)
 
-	useEffect(() => {
+	useEffect(async () => {
 		if (debouncedSearchTerm) {
-			getMovies(SEARCH_API + debouncedSearchTerm).then((result) => {
-				setMovies(result.results)
-			})
+			const response = await getMovies(FETCH.search(debouncedSearchTerm))
+			setMovies(response.results)
 		} else {
-			getMovies(FEATURED_API + page).then((result) =>
-				setMovies((oldArray) => [...oldArray, ...result.results])
-			)
+			const response = await getMovies(FETCH.featured(page))
+			setMovies((oldArray) => [...oldArray, ...response.results])
 		}
 	}, [debouncedSearchTerm, page])
 
 	const handleOnChange = (event) => {
-		setSearchTerm(event.target.value.toLowerCase().trim())
+		setSearchTerm(event.target.value)
 	}
 
 	return (
