@@ -17,7 +17,7 @@ export const GenreComponent = () => {
 				style={
 					isOpen
 						? {
-								transform: "translateX(0%)",
+								transform: `translateX(0%)`,
 						  }
 						: {}
 				}

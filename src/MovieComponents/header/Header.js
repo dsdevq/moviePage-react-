@@ -17,6 +17,7 @@ export const Header = ({ searchTerm, handleOnChange }) => {
 				searchTerm={searchTerm}
 				handleOnChange={handleOnChange}
 			/>
+			<Link to={"/login"}>login</Link>
 		</header>
 	)
 }

@@ -5,6 +5,7 @@ import MoreDetails from "./MovieComponents/MoreDetails"
 import { MoviePage } from "./pages/MoviePage"
 import { Header } from "./MovieComponents/header/Header"
 import { Genre } from "./MovieComponents/header/Genre"
+import { LoginComponent } from "./MovieComponents/header/Login/Login"
 
 export const IMG_API = (image) => `https://image.tmdb.org/t/p/w1280${image}`
 
@@ -70,6 +71,7 @@ function App() {
 				/>
 				<Route path='/movies/:movieID/*' element={<MoreDetails />} />
 				<Route path='/genres/:genreID' element={<Genre />} />
+				<Route path='/login' element={<LoginComponent />} />
 			</Routes>
 		</BrowserRouter>
 	)
