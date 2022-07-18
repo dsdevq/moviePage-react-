@@ -1,28 +1,29 @@
 import React, { useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { FETCH, pages } from "../../App"
 import { useFetch } from "../../hooks/UseFetch"
 import { ButtonComponent } from "../Button"
 import { MovieList } from "../MovieList"
+import "./Header.css"
 
-export const Genre = () => {
-	let params = useParams()
+export const Trending = () => {
 	const [page, setPage] = useState(1)
-	const genreMovies = useFetch(FETCH.genreMovies(params.genreID, page))
+	const trending = useFetch(FETCH.trending(page))
 
 	return (
 		<>
-			{genreMovies && (
+			{trending && (
 				<div className='App'>
-					<MovieList movies={genreMovies.results} />
+					<div className='trending-container'>
+						<h1>Trending movies</h1>
+					</div>
+					<MovieList movies={trending.results} />
 					<div className='button-container'>
 						{pages &&
 							pages.map((page, index) => (
 								<Link
 									key={index}
-									to={`/moviePage-react-/genres/${params.genreID}/page=${
-										index + 1
-									}`}>
+									to={`/moviePage-react-/trending/page=${index + 1}`}>
 									<ButtonComponent
 										event={() => setPage(index + 1)}
 										text={page}

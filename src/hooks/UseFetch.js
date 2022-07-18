@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react"
-const useFetch = (url) => {
-	const [movies, setMovies] = useState([])
-	useEffect(() => {
-		fetch(url)
-			.then((res) => res.json())
-			.then((movies) => {
-				setMovies((oldArray) => [...oldArray, ...movies.results])
-			})
-			.catch((err) => console.log(err))
+export const useFetch = (url) => {
+	const [data, setData] = useState([])
+	useEffect(async () => {
+		const response = await fetch(url)
+		const result = await response.json()
+		setData(result)
 	}, [url])
-	return [movies]
+	window.scrollTo(0, 0)
+	return data
 }
-export default useFetch

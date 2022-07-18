@@ -2,7 +2,6 @@ header {
   width: 100%;
   position: sticky;
   top: 0;
-  /* z-index: 100; */
   background: rgb(255, 251, 188, .5);
   display: flex;
   align-items: center;
@@ -14,12 +13,24 @@ header {
   max-width: 50px;
 }
 
+.header-item {
+  text-transform: uppercase;
+
+  padding: 0.5rem;
+  background-color: rgb(240, 230, 140, .9);
+  border: 2px solid darkkhaki;
+  max-width: fit-content;
+  display: block;
+  cursor: pointer;
+}
+
+.header-item:active {
+  transform: scale(0.98);
+}
 
 .search {
-  background-color: transparent;
   max-width: 125px;
   width: 100%;
-  border-radius: 50px;
   color: rgb(0, 0, 0);
   border: 2px solid darkkhaki;
   font-family: inherit;
@@ -42,6 +53,10 @@ header {
   border: 1px solid black;
   padding: 5px;
 }
+
+.genre-item:active {
+  transform: scale(0.98);
+}
 .App-header {
   z-index: 2;
 }
@@ -49,39 +64,37 @@ header {
 .genre-container {
   display: flex;
   gap: 2px;
-  max-width: 70%;
+  width: 100%;
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
+  z-index: -1;
+  transform: translateX(-200%);
+  position: absolute;
+  background-color: inherit;
+  padding: 0 10px 10px 10px;
+  top: 100%;
   transition: 0.2s ease-in-out;
 }
 .burger-button {
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem;
   background-color: rgb(240, 230, 140, .9);
+  min-width: 38px;
+  text-align: center;
   border: 2px solid darkkhaki;
-  border-radius: 20px;
-  display: none;
+  display: block;
+  cursor: pointer;
 }
 
-@media(max-width: 1024px) {
-  .genre-container {
-    z-index: -1;
-    transform: translateX(-100%);
-    position: absolute;
-    background-color: inherit;
-    padding: 0 10px 10px 10px;
-    max-width: 100%;
-    top: 100%;
-  }
-  .burger-button {
-    display: block;
-    cursor: pointer;
-  }
+.tranding-container upcoming-container {
+  padding: 0.2rem 2rem;
 }
-/* .burger-container {
-  position: absolute;
-  bottom: -100%;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-} */
+.upcoming-container {
+  padding: 0.2rem 2rem;
+}
+
+.nav-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}

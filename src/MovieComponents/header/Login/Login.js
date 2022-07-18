@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react"
+import "./Login.css"
 import { FETCH, getMovies } from "../../../App"
 
 export const LoginComponent = () => {
 	const [state, setState] = useState({})
 
-	const LINK = `https://api.themoviedb.org/3/authentication/token/new?${FETCH.key}`
+	const LINK = `https://api.themoviedb.org/3/authentication/token/new?api_key=${FETCH.key}`
 	useEffect(async () => {
 		// const test = await getMovies(LINK)
 		// console.log(test)
+		// console.log(
+		// 	`https://www.themoviedb.org/authenticate/${test.request_token}?redirect_to=http://localhost:3000/approved`
+		// )
+		// console.log(
+		// 	`https://api.themoviedb.org/3/authentication/session/new?api_key=${FETCH.key}`
+		// )
 		// const response = await fetch(
 		// 	`https://www.themoviedb.org/authenticate/${test.request_token}`
 		// )

@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { useParams } from "react-router-dom"
-import { FETCH, getMovies } from "../App"
+import { FETCH } from "../App"
+import { useFetch } from "../hooks/UseFetch"
 import { MovieList } from "./MovieList"
 
 export const SimilarMovies = () => {
-	const [similarMovies, setSilimarMovies] = useState()
 	let params = useParams()
+	const similarMovies = useFetch(FETCH.similar(params.movieID))
 
-	useEffect(async () => {
-		const response = await getMovies(FETCH.similar(params.movieID))
-		setSilimarMovies(response.results)
-	}, [params.movieID])
 	return (
 		<>
-			{similarMovies && (
+			{similarMovies.results && (
 				<>
-					<MovieList movies={similarMovies} />
+					<MovieList movies={similarMovies.results} />
 					<h1>Similar movies</h1>
 				</>
 			)}

@@ -3,7 +3,8 @@ import "./MoreDetails.css"
 import { useParams } from "react-router-dom"
 import { SimilarMovies } from "./SimilarMovies"
 import { FETCH, getMovies, IMG_API } from "../App"
-import { Review } from "./Review"
+import { ReviewComponent } from "./Review"
+import { useFetch } from "../hooks/UseFetch"
 
 const setVoteClass = (vote) => {
 	if (vote >= 8) {
@@ -13,31 +14,21 @@ const setVoteClass = (vote) => {
 	} else return "red"
 }
 
-const MoreDetails = () => {
-	const [selectedMovie, setSelectedMovie] = useState(null)
-	const [review, setReview] = useState({})
+export const MoreDetails = () => {
 	// Getting id of clicked movie
 	let params = useParams()
-
-	useEffect(async () => {
-		const result = await getMovies(FETCH.moreDetails(params.movieID))
-		const reviews = await getMovies(FETCH.reviews(params.movieID))
-		setReview(reviews.results)
-		setSelectedMovie(result)
-	}, [params.movieID])
+	const selectedMovie = useFetch(FETCH.moreDetails(params.movieID))
 
 	return (
 		<div className='more-details'>
 			<div className='more-details__container'>
 				{selectedMovie && (
 					<>
+						{/* SIMILAR MOVIEWS */}
 						<SimilarMovies />
+						{/* REVIEWS */}
 						<div className='review-container'>
-							{review.length ? (
-								review.map((review) => <Review key={review.id} {...review} />)
-							) : (
-								<p>No reviews yet</p>
-							)}
+							<ReviewComponent />
 						</div>
 						<aside className='more-details__information information-details'>
 							<h1 className='information-details__title'>
@@ -63,14 +54,14 @@ const MoreDetails = () => {
 								{selectedMovie.overview}
 							</p>
 							<p className='information-details__language'>
-								Original language:{" "}
+								Original language:
 								<span>{selectedMovie.original_language}</span>
 							</p>
 							<p className='information-details__vote-average '>
 								Average vote:
 								<span
 									className={`tag ${setVoteClass(selectedMovie.vote_average)}`}>
-									{Math.round(selectedMovie.vote_average)}
+									{selectedMovie.vote_average}
 								</span>
 							</p>
 							<p className='information-details__vote-count'>
@@ -89,5 +80,3 @@ const MoreDetails = () => {
 		</div>
 	)
 }
-
-export default MoreDetails

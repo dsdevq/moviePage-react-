@@ -9,7 +9,7 @@ const setVoteClass = (vote) => {
 	} else return "red"
 }
 
-function Movie({ title, poster_path, overview, vote_average }) {
+export const Movie = ({ title, poster_path, overview, vote_average }) => {
 	return (
 		<>
 			<div className='movie'>
@@ -31,5 +31,3 @@ function Movie({ title, poster_path, overview, vote_average }) {
 		</>
 	)
 }
-
-export default Movie

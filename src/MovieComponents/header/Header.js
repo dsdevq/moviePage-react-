@@ -9,15 +9,23 @@ import { LoginComponent } from "./Login/Login"
 export const Header = ({ searchTerm, handleOnChange }) => {
 	return (
 		<header className='App-header'>
-			<Link to={"/moviePage-react-"}>
+			<Link to={"/moviePage-react-/page=1"}>
 				<img className='header-logo' src={logo} alt='logo' />
 			</Link>
-			<GenreComponent />
-			<SearchComponent
+			{/* <SearchComponent
 				searchTerm={searchTerm}
 				handleOnChange={handleOnChange}
-			/>
-			<Link to={"/login"}>login</Link>
+			/> */}
+			<div className='nav-container'>
+				<Link className='header-item' to={"/moviePage-react-/upcoming"}>
+					Upcoming
+				</Link>
+				<Link className='header-item' to={"/moviePage-react-/trending"}>
+					Trending
+				</Link>
+			</div>
+			<GenreComponent />
+			{/* <Link to={"/login"}>login</Link> */}
 		</header>
 	)
 }

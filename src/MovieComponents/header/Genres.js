@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { FETCH, getMovies } from "../../App"
+import { FETCH } from "../../App"
+import { useFetch } from "../../hooks/UseFetch"
 
 export const GenreComponent = () => {
-	const [genres, setGenres] = useState([])
+	const genres = useFetch(FETCH.genreList())
 	const [isOpen, setIsOpen] = useState(false)
 
-	useEffect(async () => {
-		const response = await getMovies(FETCH.genreList())
-		setGenres(response.genres)
-	}, [])
+	useEffect(() => {})
 
 	return (
 		<>
@@ -22,21 +20,23 @@ export const GenreComponent = () => {
 						: {}
 				}
 				className='genre-container'>
-				{genres.length &&
-					genres.map((genre) => {
+				{genres.genres &&
+					genres.genres.map((genre) => {
 						return (
 							<Link
 								onClick={() => setIsOpen(!isOpen)}
 								className='genre-item'
-								to={`/genres/${genre.id}`}
+								to={`/moviePage-react-/genres/${genre.id}/page=1`}
 								key={genre.id}>
 								{genre.name.toUpperCase()}
 							</Link>
 						)
 					})}
 			</div>
-			<div onClick={() => setIsOpen(!isOpen)} className='burger-button'>
-				GENRES
+			<div
+				onClick={() => setIsOpen(!isOpen)}
+				className='burger-button header-item'>
+				{!isOpen ? "GENRES" : "x"}
 			</div>
 		</>
 	)
