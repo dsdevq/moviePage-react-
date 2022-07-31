@@ -11,7 +11,6 @@ export const MoviePage = () => {
 
 	return (
 		<div className='App'>
-			<h1>Start page. Current page number {page}</h1>
 			<MovieList movies={movies.results} link={FETCH.featured} />
 			<div className='button-container'>
 				{pages &&

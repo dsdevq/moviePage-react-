@@ -14,13 +14,6 @@ export const Upcoming = () => {
 		<div className='App'>
 			{upcomingMovies.dates && (
 				<>
-					<div className='upcoming-container'>
-						<h1>Upcoming movies</h1>
-						<p>
-							Dates: {upcomingMovies.dates.minimum}
-							{upcomingMovies.dates.maximum}
-						</p>
-					</div>
 					<MovieList movies={upcomingMovies.results} />
 					<div className='button-container'>
 						{pages &&

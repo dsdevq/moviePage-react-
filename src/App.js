@@ -9,7 +9,8 @@ import { Upcoming } from "./MovieComponents/header/Upcoming"
 import { Trending } from "./MovieComponents/header/Trending"
 import { SearchComponent } from "./MovieComponents/header/Search"
 
-export const IMG_API = (image) => `https://image.tmdb.org/t/p/w1280${image}`
+export const IMG_API = (image) =>
+	image && `https://image.tmdb.org/t/p/w1280${image}`
 
 export const FETCH = {
 	key: "04c35731a5ee918f014970082a0088b1",

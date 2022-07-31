@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react"
 import "./Review.css"
 import monke3 from "../assets/monke3.png"
-import { FETCH, getMovies, IMG_API } from "../App"
+import { FETCH, IMG_API } from "../App"
 import { useParams } from "react-router-dom"
 import { useFetch } from "../hooks/UseFetch"
 
 const convertURL = (url) => {
-	if (url.toString().startsWith("/https")) {
+	if (url && url.toString().startsWith("/https")) {
 		return url.toString().replace("/", "")
 	} else return IMG_API(url)
 }

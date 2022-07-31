@@ -14,9 +14,6 @@ export const Trending = () => {
 		<>
 			{trending && (
 				<div className='App'>
-					<div className='trending-container'>
-						<h1>Trending movies</h1>
-					</div>
 					<MovieList movies={trending.results} />
 					<div className='button-container'>
 						{pages &&

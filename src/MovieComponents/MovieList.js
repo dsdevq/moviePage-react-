@@ -7,7 +7,7 @@ import { ButtonComponent } from "./Button"
 export const MovieList = ({ movies }) => {
 	useEffect(async () => {}, [])
 
-	// Component should render array data by himself, using shared link
+	// !Component should render array data by himself, using shared link
 	// const [movies, setMovies] = useState([])
 	// const [page, setPage] = useState(1)
 

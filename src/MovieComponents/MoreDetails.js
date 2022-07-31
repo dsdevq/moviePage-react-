@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react"
 import "./MoreDetails.css"
 import { useParams } from "react-router-dom"
 import { SimilarMovies } from "./SimilarMovies"
-import { FETCH, getMovies, IMG_API } from "../App"
+import { FETCH, IMG_API } from "../App"
 import { ReviewComponent } from "./Review"
 import { useFetch } from "../hooks/UseFetch"
+import { Loader } from "./Loader"
 
 const setVoteClass = (vote) => {
 	if (vote >= 8) {
@@ -22,11 +22,11 @@ export const MoreDetails = () => {
 	return (
 		<div className='more-details'>
 			<div className='more-details__container'>
-				{selectedMovie && (
+				{selectedMovie ? (
 					<>
-						{/* SIMILAR MOVIEWS */}
+						//# SIMILAR MOVIEWS
 						<SimilarMovies />
-						{/* REVIEWS */}
+						//# REVIEWS
 						<div className='review-container'>
 							<ReviewComponent />
 						</div>
@@ -75,6 +75,8 @@ export const MoreDetails = () => {
 							/>
 						</aside>
 					</>
+				) : (
+					<Loader />
 				)}
 			</div>
 		</div>
