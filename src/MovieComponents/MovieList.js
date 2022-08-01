@@ -1,26 +1,26 @@
-import React, { useEffect } from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { Movie } from "./Movie"
 import { Loader } from "./Loader"
 import { ButtonComponent } from "./Button"
-// Share as prop fetch url
-export const MovieList = ({ movies }) => {
-	useEffect(async () => {}, [])
+import { useFetch } from "../hooks/UseFetch"
+import { useMoviePage } from "../context/MoviePageContext"
 
-	// !Component should render array data by himself, using shared link
-	// const [movies, setMovies] = useState([])
-	// const [page, setPage] = useState(1)
-
-	// useEffect(async () => {
-	// 	const response = await getMovies(FETCH.featured(page))
-	// 	setMovies((oldArray) => [...oldArray, ...response.results])
-	// }, [page])
+// # Method, id
+export const MovieList = ({ method, id }) => {
+	const [page, setPage] = useState(1)
+	const { FETCH, pages } = useMoviePage()
+	const movies = useFetch(FETCH[method](id ? id : page, page))
+	console.log(FETCH[method](id ? id : page, page))
+	console.log("method", method)
+	console.log("id", id)
+	console.log("page", page)
 
 	return (
 		<>
 			<div className='movie-container'>
-				{movies ? (
-					movies.map((movie) => (
+				{movies.results ? (
+					movies.results.map((movie) => (
 						<Link
 							className='movie-link'
 							to={`/moviePage-react-/movies/${movie.id}`}
@@ -31,6 +31,19 @@ export const MovieList = ({ movies }) => {
 				) : (
 					<Loader />
 				)}
+			</div>
+			<div className='button-container'>
+				{/* path  */}
+				{pages &&
+					pages.map((page, index) => (
+						<Link
+							key={index}
+							to={`/moviePage-react-/${method}${id ? `/${id}` : ""}/page=${
+								index + 1
+							}`}>
+							<ButtonComponent event={() => setPage(index + 1)} text={page} />
+						</Link>
+					))}
 			</div>
 		</>
 	)

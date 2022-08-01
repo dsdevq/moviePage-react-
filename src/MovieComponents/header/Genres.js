@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { FETCH } from "../../App"
+import { useMoviePage } from "../../context/MoviePageContext"
 import { useFetch } from "../../hooks/UseFetch"
 
 export const GenreComponent = () => {
-	const genres = useFetch(FETCH.genreList())
+	const { FETCH } = useMoviePage()
+	const genres = useFetch(FETCH.genresList())
 	const [isOpen, setIsOpen] = useState(false)
 
 	useEffect(() => {})
@@ -26,7 +27,7 @@ export const GenreComponent = () => {
 							<Link
 								onClick={() => setIsOpen(!isOpen)}
 								className='genre-item'
-								to={`/moviePage-react-/genres/${genre.id}/page=1`}
+								to={`/moviePage-react-/genres/${genre.id}`}
 								key={genre.id}>
 								{genre.name.toUpperCase()}
 							</Link>

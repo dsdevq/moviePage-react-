@@ -1,5 +1,5 @@
 import React from "react"
-import { IMG_API } from "../App"
+import { useMoviePage } from "../context/MoviePageContext"
 
 const setVoteClass = (vote) => {
 	if (vote >= 8) {
@@ -10,6 +10,8 @@ const setVoteClass = (vote) => {
 }
 
 export const Movie = ({ title, poster_path, overview, vote_average }) => {
+	const { IMG_API } = useMoviePage()
+
 	return (
 		<>
 			<div className='movie'>

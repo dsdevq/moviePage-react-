@@ -9,7 +9,7 @@ import { LoginComponent } from "./Login/Login"
 export const Header = ({ searchTerm, handleOnChange }) => {
 	return (
 		<header className='App-header'>
-			<Link to={"/moviePage-react-/page=1"}>
+			<Link to={"/moviePage-react-/featured/page=1"}>
 				<img className='header-logo' src={logo} alt='logo' />
 			</Link>
 			{/* <SearchComponent
@@ -17,10 +17,10 @@ export const Header = ({ searchTerm, handleOnChange }) => {
 				handleOnChange={handleOnChange}
 			/> */}
 			<div className='nav-container'>
-				<Link className='header-item' to={"/moviePage-react-/upcoming"}>
+				<Link className='header-item' to={"/moviePage-react-/upcoming/page=1"}>
 					Upcoming
 				</Link>
-				<Link className='header-item' to={"/moviePage-react-/trending"}>
+				<Link className='header-item' to={"/moviePage-react-/trending/page=1"}>
 					Trending
 				</Link>
 			</div>

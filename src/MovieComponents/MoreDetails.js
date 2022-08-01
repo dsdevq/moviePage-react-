@@ -1,10 +1,10 @@
 import "./MoreDetails.css"
 import { useParams } from "react-router-dom"
-import { SimilarMovies } from "./SimilarMovies"
-import { FETCH, IMG_API } from "../App"
 import { ReviewComponent } from "./Review"
 import { useFetch } from "../hooks/UseFetch"
 import { Loader } from "./Loader"
+import { useMoviePage } from "../context/MoviePageContext"
+import { MovieList } from "./MovieList"
 
 const setVoteClass = (vote) => {
 	if (vote >= 8) {
@@ -17,6 +17,7 @@ const setVoteClass = (vote) => {
 export const MoreDetails = () => {
 	// Getting id of clicked movie
 	let params = useParams()
+	const { IMG_API, FETCH } = useMoviePage()
 	const selectedMovie = useFetch(FETCH.moreDetails(params.movieID))
 
 	return (
@@ -25,7 +26,8 @@ export const MoreDetails = () => {
 				{selectedMovie ? (
 					<>
 						//# SIMILAR MOVIEWS
-						<SimilarMovies />
+						{/* <SimilarMovies /> */}
+						<MovieList method={"similar"} id={params.movieID} />
 						//# REVIEWS
 						<div className='review-container'>
 							<ReviewComponent />

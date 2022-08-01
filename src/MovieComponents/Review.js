@@ -1,18 +1,19 @@
 import "./Review.css"
 import monke3 from "../assets/monke3.png"
-import { FETCH, IMG_API } from "../App"
 import { useParams } from "react-router-dom"
 import { useFetch } from "../hooks/UseFetch"
-
-const convertURL = (url) => {
-	if (url && url.toString().startsWith("/https")) {
-		return url.toString().replace("/", "")
-	} else return IMG_API(url)
-}
+import { useMoviePage } from "../context/MoviePageContext"
 
 export const ReviewComponent = () => {
 	const params = useParams()
+	const { FETCH, IMG_API } = useMoviePage()
 	const reviews = useFetch(FETCH.reviews(params.movieID))
+
+	const convertURL = (url) => {
+		if (url && url.toString().startsWith("/https")) {
+			return url.toString().replace("/", "")
+		} else return IMG_API(url)
+	}
 
 	return (
 		<>

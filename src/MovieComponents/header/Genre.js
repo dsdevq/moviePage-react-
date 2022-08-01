@@ -1,21 +1,18 @@
 import React, { useState } from "react"
-import { Link, useParams } from "react-router-dom"
-import { FETCH, pages } from "../../App"
+import { useParams } from "react-router-dom"
+import { useMoviePage } from "../../context/MoviePageContext"
 import { useFetch } from "../../hooks/UseFetch"
 import { ButtonComponent } from "../Button"
 import { MovieList } from "../MovieList"
 
 export const Genre = () => {
 	let params = useParams()
-	const [page, setPage] = useState(1)
-	const genreMovies = useFetch(FETCH.genreMovies(params.genreID, page))
 
 	return (
 		<>
-			{genreMovies && (
-				<div className='App'>
-					<MovieList movies={genreMovies.results} />
-					<div className='button-container'>
+			<div className='App'>
+				<MovieList method='genres' id={params.genreID} />
+				{/* <div className='button-container'>
 						{pages &&
 							pages.map((page, index) => (
 								<Link
@@ -29,9 +26,8 @@ export const Genre = () => {
 									/>
 								</Link>
 							))}
-					</div>
-				</div>
-			)}
+					</div> */}
+			</div>
 		</>
 	)
 }

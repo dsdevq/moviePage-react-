@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react"
 import "./Login.css"
-import { FETCH, getMovies } from "../../../App"
 
 export const LoginComponent = () => {
 	const [state, setState] = useState({})
 
-	const LINK = `https://api.themoviedb.org/3/authentication/token/new?api_key=${FETCH.key}`
+	// const LINK = `https://api.themoviedb.org/3/authentication/token/new?api_key=${FETCH.key}`
 	useEffect(async () => {
 		// const test = await getMovies(LINK)
 		// console.log(test)
