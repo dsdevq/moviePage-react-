@@ -27,7 +27,7 @@ export const GenreComponent = () => {
 							<Link
 								onClick={() => setIsOpen(!isOpen)}
 								className='genre-item'
-								to={`/moviePage-react-/genres/${genre.id}`}
+								to={`/moviePage-react-/genres/${genre.id}/page=1`}
 								key={genre.id}>
 								{genre.name.toUpperCase()}
 							</Link>

@@ -11,10 +11,10 @@ export const MovieList = ({ method, id }) => {
 	const [page, setPage] = useState(1)
 	const { FETCH, pages } = useMoviePage()
 	const movies = useFetch(FETCH[method](id ? id : page, page))
-	console.log(FETCH[method](id ? id : page, page))
-	console.log("method", method)
-	console.log("id", id)
-	console.log("page", page)
+	// console.log(FETCH[method](id ? id : page, page))
+	// console.log("method", method)
+	// console.log("id", id)
+	// console.log("page", page)
 
 	return (
 		<>
@@ -33,7 +33,6 @@ export const MovieList = ({ method, id }) => {
 				)}
 			</div>
 			<div className='button-container'>
-				{/* path  */}
 				{pages &&
 					pages.map((page, index) => (
 						<Link

@@ -11,7 +11,6 @@ const IMG_API = (image) => image && `https://image.tmdb.org/t/p/w1280${image}`
 const FETCH = {
 	key: "04c35731a5ee918f014970082a0088b1",
 	link: "https://api.themoviedb.org/3",
-	page: 1,
 	search: function (value) {
 		return `${this.link}/search/movie?&api_key=${this.key}&query=${value}`
 	},
@@ -23,8 +22,8 @@ const FETCH = {
 	genres: function (genreID, page) {
 		return `${this.link}/discover/movie?api_key=${this.key}&sort_by=popularity.desc&with_genres=${genreID}&page=${page}`
 	},
-	similar: function (movieID) {
-		return `${this.link}/movie/${movieID}/similar?&api_key=${this.key}&page=${this.page}`
+	similar: function (movieID, page) {
+		return `${this.link}/movie/${movieID}/similar?&api_key=${this.key}&page=${page}`
 	},
 	// *
 	trending: function (page) {
