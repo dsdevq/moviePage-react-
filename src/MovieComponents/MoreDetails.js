@@ -25,10 +25,10 @@ export const MoreDetails = () => {
 			<div className='more-details__container'>
 				{selectedMovie ? (
 					<>
-						//# SIMILAR MOVIEWS
+						{/* //# SIMILAR MOVIEWS */}
 						{/* <SimilarMovies /> */}
 						<MovieList method={"similar"} id={params.movieID} />
-						//# REVIEWS
+						{/* //# REVIEWS */}
 						<div className='review-container'>
 							<ReviewComponent />
 						</div>

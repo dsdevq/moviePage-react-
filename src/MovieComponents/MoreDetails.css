@@ -7,31 +7,20 @@
 
 .more-details {
 }
-/* .more-details * p {
-  font-size: 24px;
-} */
 
 .more-details__container {
 	display: flex;
-	background-color: rgb(240, 230, 140, 0.4);
-	border: 1px solid rgb(240, 230, 140);
-
 	flex-direction: column-reverse;
 	justify-content: flex-start;
 	padding: 50px 0 50px 0;
 	gap: 50px;
-	max-width: 1360px;
 	min-height: 650px;
-	margin: 0 auto;
 	position: relative;
 	align-items: center;
 }
 .more-details__information {
 	border-radius: 5%;
 	z-index: 1;
-}
-.more-details__image {
-	/* flex: 0 1 60%; */
 }
 
 .more-details__image img {
@@ -41,7 +30,6 @@
 	height: auto;
 	width: 100%;
 	right: 0;
-	/* top: 0; */
 }
 
 span {
@@ -92,8 +80,6 @@ span {
 	flex-wrap: wrap;
 	gap: 0.2rem;
 }
-.genre-box__item {
-}
 
 .review-container {
 	display: flex;
@@ -103,5 +89,6 @@ span {
 .button-container {
 	display: flex;
 	gap: 5px;
+	flex-wrap: wrap;
 	justify-content: center;
 }

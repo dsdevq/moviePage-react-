@@ -1,31 +1,78 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import logo from "../../assets/logo.png"
 import { GenreComponent } from "./Genres"
-import { SearchComponent } from "./Search"
 import "./Header.css"
-import { LoginComponent } from "./Login/Login"
 
-export const Header = ({ searchTerm, handleOnChange }) => {
+export const Header = () => {
+	const [isOpen, setIsOpen] = useState(false)
 	return (
 		<header className='App-header'>
-			<Link to={"/moviePage-react-/featured/page=1"}>
+			<Link to={"/moviePage-react-/"}>
 				<img className='header-logo' src={logo} alt='logo' />
 			</Link>
-			{/* <SearchComponent
-				searchTerm={searchTerm}
-				handleOnChange={handleOnChange}
-			/> */}
 			<div className='nav-container'>
-				<Link className='header-item' to={"/moviePage-react-/upcoming/page=1"}>
+				<Link
+					onClick={() => setIsOpen(false)}
+					className='header-item'
+					to={"/moviePage-react-/upcoming/page=1"}>
 					Upcoming
 				</Link>
-				<Link className='header-item' to={"/moviePage-react-/trending/page=1"}>
+				<Link
+					onClick={() => setIsOpen(false)}
+					className='header-item'
+					to={"/moviePage-react-/trending/page=1"}>
 					Trending
+				</Link>
+				<Link
+					onClick={() => setIsOpen(false)}
+					className='header-item'
+					to={"/moviePage-react-/featured/page=1"}>
+					Featured
 				</Link>
 			</div>
 			<GenreComponent />
-			{/* <Link to={"/login"}>login</Link> */}
+
+			{/* <div
+				className={isOpen ? "menu-btn open" : "menu-btn"}
+				onClick={() => setIsOpen(!isOpen)}>
+				<div className='menu-btn__burger'></div>
+			</div>
+
+			<div
+				style={
+					isOpen
+						? {
+								display: "flex",
+								transform: "translateY(0%)",
+						  }
+						: {
+								transform: "translateY(-300%)",
+						  }
+				}
+				className='header-space'>
+				<div className='nav-container'>
+					<GenreComponent />
+					<Link
+						onClick={() => setIsOpen(false)}
+						className='header-item'
+						to={"/moviePage-react-/upcoming/page=1"}>
+						Upcoming
+					</Link>
+					<Link
+						onClick={() => setIsOpen(false)}
+						className='header-item'
+						to={"/moviePage-react-/trending/page=1"}>
+						Trending
+					</Link>
+					<Link
+						onClick={() => setIsOpen(false)}
+						className='header-item'
+						to={"/moviePage-react-/featured/page=1"}>
+						Featured
+					</Link>
+				</div>
+			</div> */}
 		</header>
 	)
 }

@@ -6,6 +6,7 @@ import { Genre } from "./pages/Genre"
 import { SearchComponent } from "./MovieComponents/header/Search"
 import { MoviePageProvider } from "./context/MoviePageContext"
 import { MovieList } from "./MovieComponents/MovieList"
+import { MainPage } from "./pages/MainPage"
 
 function App() {
 	return (
@@ -13,7 +14,7 @@ function App() {
 			<BrowserRouter>
 				<Header />
 				<Routes>
-					{/* <Route path={"/moviePage-react-/featured/"} element={<MoviePage />} /> */}
+					<Route path={"/moviePage-react-/"} element={<MainPage />} />
 					<Route
 						path={"/moviePage-react-/featured/:pageID"}
 						element={<MovieList method='featured' />}
@@ -41,12 +42,6 @@ function App() {
 						path='/moviePage-react-/search'
 						element={<SearchComponent />}
 					/>
-					//! FIX
-					{/* Default path  */}
-					{/* <Route
-						path='*'
-						element={<Navigate to='/moviePage-react-/page=1' replace />}
-					/> */}
 				</Routes>
 			</BrowserRouter>
 		</MoviePageProvider>

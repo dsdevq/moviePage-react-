@@ -16,9 +16,11 @@ export const GenreComponent = () => {
 				style={
 					isOpen
 						? {
-								transform: `translateX(0%)`,
+								transform: `translateX(-0.4%)`,
 						  }
-						: {}
+						: {
+								transform: `translateX(-100%)`,
+						  }
 				}
 				className='genre-container'>
 				{genres.genres &&
