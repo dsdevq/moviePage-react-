@@ -1,20 +1,27 @@
-import React from "react"
+import React, { useState } from "react"
 
-export const SearchComponent = ({ searchTerm, handleOnChange }) => {
-	// const [searchTerm, setSearchTerm] = useState("")
-	// const debouncedSearchTerm = useDebounce(searchTerm, 500)
+export const SearchComponent = () => {
+	const [searchTerm, setSearchTerm] = useState("")
 
-	// const handleOnChange = (event) => {
-	// 	setSearchTerm(event.target.value)
-	// }
+	const handleOnChange = (event) => {
+		setSearchTerm(event.target.value)
+	}
+
+	const handleOnSubmit = (event) => {
+		event.preventDefault()
+		setSearchTerm("")
+	}
 
 	return (
-		<input
-			className='search'
-			type='text'
-			placeholder='Search...'
-			value={searchTerm}
-			onChange={handleOnChange}
-		/>
+		<form onSubmit={handleOnSubmit}>
+			<input
+				className='search'
+				type='text'
+				placeholder='Search...'
+				value={searchTerm}
+				onChange={handleOnChange}
+			/>
+			<input type='submit' value='Search' />
+		</form>
 	)
 }

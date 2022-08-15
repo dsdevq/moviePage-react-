@@ -19,7 +19,7 @@ export const GenreComponent = () => {
 								transform: `translateX(-0.4%)`,
 						  }
 						: {
-								transform: `translateX(-100%)`,
+								transform: `translateX(-200%)`,
 						  }
 				}
 				className='genre-container'>

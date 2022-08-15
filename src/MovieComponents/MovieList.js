@@ -11,11 +11,6 @@ export const MovieList = ({ method, id }) => {
 	const [page, setPage] = useState(1)
 	const { FETCH, pages } = useMoviePage()
 	const movies = useFetch(FETCH[method](id ? id : page, page))
-	// console.log(FETCH[method](id ? id : page, page))
-	// console.log("method", method)
-	// console.log("id", id)
-	// console.log("page", page)
-
 	return (
 		<>
 			<div className='movie-container'>
@@ -32,18 +27,20 @@ export const MovieList = ({ method, id }) => {
 					<Loader />
 				)}
 			</div>
-			<div className='button-container'>
-				{pages &&
-					pages.map((page, index) => (
-						<Link
-							key={index}
-							to={`/moviePage-react-/${method}${id ? `/${id}` : ""}/page=${
-								index + 1
-							}`}>
-							<ButtonComponent event={() => setPage(index + 1)} text={page} />
-						</Link>
-					))}
-			</div>
+			{method !== "similar" && (
+				<div className='button-container'>
+					{pages &&
+						pages.map((page, index) => (
+							<Link
+								key={index}
+								to={`/moviePage-react-/${method}${id ? `/${id}` : ""}/page=${
+									index + 1
+								}`}>
+								<ButtonComponent event={() => setPage(index + 1)} text={page} />
+							</Link>
+						))}
+				</div>
+			)}
 		</>
 	)
 }
