@@ -26,7 +26,6 @@ export const MoreDetails = () => {
 				{selectedMovie ? (
 					<>
 						{/* //# SIMILAR MOVIEWS */}
-						{/* <SimilarMovies /> */}
 						<MovieList method={"similar"} id={params.movieID} />
 						{/* //# REVIEWS */}
 						<div className='review-container'>
