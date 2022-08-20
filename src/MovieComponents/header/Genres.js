@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { ROUTE_PATH } from "../../App"
 import { useMoviePage } from "../../context/MoviePageContext"
 import { useFetch } from "../../hooks/UseFetch"
 
@@ -29,7 +30,10 @@ export const GenreComponent = () => {
 							<Link
 								onClick={() => setIsOpen(!isOpen)}
 								className='genre-item'
-								to={`/moviePage-react-/genres/${genre.id}/page=1`}
+								to={ROUTE_PATH.genre.replace(
+									":genreID/:pageID",
+									`${genre.id}/page=1`
+								)}
 								key={genre.id}>
 								{genre.name.toUpperCase()}
 							</Link>

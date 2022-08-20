@@ -5,6 +5,7 @@ import { Loader } from "./Loader"
 import { ButtonComponent } from "./Button"
 import { useFetch } from "../hooks/UseFetch"
 import { useMoviePage } from "../context/MoviePageContext"
+import { ROUTE_PATH } from "../App"
 
 // # Method, id
 export const MovieList = ({ method, id }) => {
@@ -18,7 +19,7 @@ export const MovieList = ({ method, id }) => {
 					movies.results.map((movie) => (
 						<Link
 							className='movie-link'
-							to={`/moviePage-react-/movies/${movie.id}`}
+							to={ROUTE_PATH.movie.replace(":movieID/*", movie.id)}
 							key={movie.id}>
 							<Movie {...movie} />
 						</Link>
@@ -33,9 +34,7 @@ export const MovieList = ({ method, id }) => {
 						pages.map((page, index) => (
 							<Link
 								key={index}
-								to={`/moviePage-react-/${method}${id ? `/${id}` : ""}/page=${
-									index + 1
-								}`}>
+								to={`/${method}${id ? `/${id}` : ""}/page=${index + 1}`}>
 								<ButtonComponent event={() => setPage(index + 1)} text={page} />
 							</Link>
 						))}

@@ -11,6 +11,7 @@ import "swiper/css"
 import "swiper/css/navigation"
 import { Link } from "react-router-dom"
 import { MovieList } from "../MovieComponents/MovieList"
+import { GOTO, ROUTE_PATH } from "../App"
 
 export const MainPage = () => {
 	const { FETCH } = useMoviePage()
@@ -37,7 +38,7 @@ export const MainPage = () => {
 								virtualIndex={index}>
 								<Link
 									className='movie-link'
-									to={`/moviePage-react-/movies/${movie.id}`}>
+									to={ROUTE_PATH.movie.replace(":movieID/*", movie.id)}>
 									<Movie {...movie} />
 								</Link>
 							</SwiperSlide>

@@ -4,10 +4,6 @@
 	font-weight: 400;
 	box-sizing: border-box;
 }
-
-.more-details {
-}
-
 .more-details__container {
 	display: flex;
 	flex-direction: column-reverse;
@@ -50,23 +46,12 @@ span {
 	font-size: xx-large;
 	font-style: oblique;
 }
-.information-details__release {
-}
-.information-details__popularity {
-}
 .information-details__overview {
 	padding: 10px;
 	background: rgba(0, 0, 0, 0.11);
 	margin: 0 10px;
 	border-radius: 10px;
 }
-.information-details__language {
-}
-.information-details__vote-average {
-}
-.information-details__vote-count {
-}
-
 .genre-box {
 	display: flex;
 	justify-content: center;
