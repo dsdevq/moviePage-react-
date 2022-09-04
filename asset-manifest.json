@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/moviePage-react-/static/css/main.ba61e49a.css",
-    "main.js": "/moviePage-react-/static/js/main.be700e48.js",
+    "main.css": "/moviePage-react-/static/css/main.6bed38f9.css",
+    "main.js": "/moviePage-react-/static/js/main.5447a99c.js",
     "static/media/monke3.png": "/moviePage-react-/static/media/monke3.0d5082d7f05b478fb884.png",
     "static/media/logo.png": "/moviePage-react-/static/media/logo.8691b41697078fe247db.png",
     "index.html": "/moviePage-react-/index.html",
-    "main.ba61e49a.css.map": "/moviePage-react-/static/css/main.ba61e49a.css.map",
-    "main.be700e48.js.map": "/moviePage-react-/static/js/main.be700e48.js.map"
+    "main.6bed38f9.css.map": "/moviePage-react-/static/css/main.6bed38f9.css.map",
+    "main.5447a99c.js.map": "/moviePage-react-/static/js/main.5447a99c.js.map"
   },
   "entrypoints": [
-    "static/css/main.ba61e49a.css",
-    "static/js/main.be700e48.js"
+    "static/css/main.6bed38f9.css",
+    "static/js/main.5447a99c.js"
   ]
 }
