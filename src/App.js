@@ -1,5 +1,5 @@
 import React from "react"
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import { MoreDetails } from "./MovieComponents/MoreDetails"
 import { Header } from "./MovieComponents/header/Header"
 import { Genre } from "./pages/Genre"
@@ -24,6 +24,9 @@ function App() {
 			<BrowserRouter>
 				<Header />
 				<Routes>
+					{/* Default page */}
+					<Route path='*' element={<Navigate to='/' replace />} />
+					{/*  */}
 					<Route path={ROUTE_PATH.mainPage} element={<MainPage />} />
 					<Route
 						path={ROUTE_PATH.featured}

@@ -16,12 +16,12 @@ export const MovieList = ({ method, id }) => {
 		<>
 			<div className='movie-container'>
 				{movies.results ? (
-					movies.results.map((movie) => (
+					movies.results.map(({ id, ...rest }) => (
 						<Link
 							className='movie-link'
-							to={ROUTE_PATH.movie.replace(":movieID/*", movie.id)}
-							key={movie.id}>
-							<Movie {...movie} />
+							to={ROUTE_PATH.movie.replace(":movieID/*", id)}
+							key={id}>
+							<Movie {...rest} />
 						</Link>
 					))
 				) : (

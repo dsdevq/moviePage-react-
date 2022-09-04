@@ -16,7 +16,7 @@ export const useFetch = (url) => {
 		})()
 		return () => {
 			controller?.abort()
-			window.scrollTo(0, 0)
+			// window.scrollTo(0, 0)
 		}
 	}, [url])
 	return data

@@ -11,11 +11,12 @@ import "swiper/css"
 import "swiper/css/navigation"
 import { Link } from "react-router-dom"
 import { MovieList } from "../MovieComponents/MovieList"
-import { GOTO, ROUTE_PATH } from "../App"
+import { ROUTE_PATH } from "../App"
 
 export const MainPage = () => {
 	const { FETCH } = useMoviePage()
-	const movies = useFetch(FETCH.upcoming(1))
+	const { results } = useFetch(FETCH.upcoming(1))
+	const { movie } = ROUTE_PATH
 
 	const [method, setMethod] = useState("featured")
 
@@ -30,16 +31,16 @@ export const MainPage = () => {
 					spaceBetween={50}
 					slidesPerView={3}
 					virtual>
-					{movies.results &&
-						movies.results.map((movie, index) => (
+					{results &&
+						results.map(({ id, ...rest }, index) => (
 							<SwiperSlide
 								className='swiper-slide'
-								key={movie.id}
+								key={id}
 								virtualIndex={index}>
 								<Link
 									className='movie-link'
-									to={ROUTE_PATH.movie.replace(":movieID/*", movie.id)}>
-									<Movie {...movie} />
+									to={movie.replace(":movieID/*", id)}>
+									<Movie {...rest} />
 								</Link>
 							</SwiperSlide>
 						))}

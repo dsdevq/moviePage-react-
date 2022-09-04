@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body,
 html {
 	background-color: darkkhaki;
@@ -7,13 +11,6 @@ html {
 	min-height: 100vh;
 }
 
-.App {
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-	min-height: 100%;
-	align-items: center;
-}
 [class*="__container"] {
 	max-width: 1366px;
 	padding-left: 1rem;
@@ -67,7 +64,6 @@ html {
 
 .movie img {
 	max-width: 100%;
-	aspect-ratio: 2/3;
 }
 
 .movie-info {

@@ -16,7 +16,7 @@ header {
 
 .header-item {
 	text-transform: uppercase;
-	padding: 0.5rem;
+	padding: 0.2rem;
 	background-color: rgb(240, 230, 140, 0.9);
 	border: 2px solid darkkhaki;
 	max-width: fit-content;
@@ -69,37 +69,15 @@ header {
 	position: absolute;
 	background-color: inherit;
 	padding: 0 10px 10px 10px;
+	left: 0;
 	top: 100%;
 	transition: 0.2s ease-in-out;
-}
-.burger-button {
-	padding: 0.5rem;
-	background-color: rgb(240, 230, 140, 0.9);
-	min-width: 38px;
-	text-align: center;
-	border: 2px solid darkkhaki;
-	display: block;
-	cursor: pointer;
-}
-
-.tranding-container upcoming-container {
-	padding: 0.2rem 2rem;
-}
-.upcoming-container {
-	padding: 0.2rem 2rem;
 }
 
 .nav-container {
 	display: flex;
+	flex: 1;
+	justify-content: flex-end;
 	flex-wrap: wrap;
 	gap: 5px;
-}
-
-/* Burger */
-
-.header-space {
-	width: 99.6%;
-	position: absolute;
-	transition: all 0.1s ease-in-out;
-	bottom: -55%;
 }

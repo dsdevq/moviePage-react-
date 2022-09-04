@@ -16,64 +16,66 @@ const setVoteClass = (vote) => {
 
 export const MoreDetails = () => {
 	// Getting id of clicked movie
-	let params = useParams()
+	let { movieID } = useParams()
 	const { IMG_API, FETCH } = useMoviePage()
-	const selectedMovie = useFetch(FETCH.moreDetails(params.movieID))
+	const {
+		title,
+		genres,
+		backdrop_path,
+		release_date,
+		popularity,
+		overview,
+		original_language,
+		vote_average,
+		vote_count,
+	} = useFetch(FETCH.moreDetails(movieID))
 
 	return (
 		<div className='more-details'>
 			<div className='more-details__container'>
-				{selectedMovie ? (
+				{genres ? (
 					<>
 						{/* //# SIMILAR MOVIEWS */}
-						<MovieList method={"similar"} id={params.movieID} />
+						<MovieList method={"similar"} id={movieID} />
 						{/* //# REVIEWS */}
 						<div className='review-container'>
 							<ReviewComponent />
 						</div>
 						<aside className='more-details__information information-details'>
-							<h1 className='information-details__title'>
-								{selectedMovie.title}
-							</h1>
+							<h1 className='information-details__title'>{title}</h1>
 							<div className='information-details__genre genre-box'>
 								<div className='genre-box__container'>
-									{selectedMovie.genres &&
-										selectedMovie.genres.map((genre, index) => (
+									{genres &&
+										genres.map(({ name }, index) => (
 											<p key={index} className='genre-box__item'>
-												{genre.name}
+												{name}
 											</p>
 										))}
 								</div>
 							</div>
 							<p className='information-details__release'>
-								Release date: {selectedMovie.release_date}
+								Release date: {release_date}
 							</p>
 							<p className='information-details__popularity'>
-								Popularity: {Math.round(selectedMovie.popularity)}
+								Popularity: {Math.round(popularity)}
 							</p>
-							<p className='information-details__overview'>
-								{selectedMovie.overview}
-							</p>
+							<p className='information-details__overview'>{overview}</p>
 							<p className='information-details__language'>
 								Original language:
-								<span>{selectedMovie.original_language}</span>
+								<span>{original_language}</span>
 							</p>
 							<p className='information-details__vote-average '>
 								Average vote:
-								<span
-									className={`tag ${setVoteClass(selectedMovie.vote_average)}`}>
-									{selectedMovie.vote_average}
+								<span className={`tag ${setVoteClass(vote_average)}`}>
+									{vote_average}
 								</span>
 							</p>
 							<p className='information-details__vote-count'>
-								Vote count: {Math.round(selectedMovie.vote_count)}
+								Vote count: {Math.round(vote_count)}
 							</p>
 						</aside>
 						<aside className='more-details__image'>
-							<img
-								src={IMG_API(selectedMovie.backdrop_path)}
-								alt={selectedMovie.title}
-							/>
+							<img src={IMG_API(backdrop_path)} alt={title} />
 						</aside>
 					</>
 				) : (
